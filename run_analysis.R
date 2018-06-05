@@ -19,7 +19,7 @@ activity_desc <- as.character(activitylabels[,2])
 features <- read.table("UCI HAR Dataset/features.txt")
 feature_desc <- as.character(features[,2])
 
-#join activity_labels and y_test to get the activity labels
+#join activity_labels and y_test
 y_test <- read.table("UCI HAR Dataset/test/y_test.txt")
 names(y_test) <- c("id")
 Y_act_labels <- read.csv("UCI HAR Dataset/activity_labels.txt",sep="",header = FALSE)
@@ -27,7 +27,7 @@ names(Y_act_labels) <- c("id","desc")
 merge_test_act <- join(Y_act_labels,y_test,by="id")
 
 
-#join activity_labels and y_train to get the activity labels
+#join activity_labels and y_train
 y_train <- read.table("UCI HAR Dataset/train/y_train.txt")
 names(y_train) <- c("id")
 merge_train_act <- join(Y_act_labels,y_train,by="id")
